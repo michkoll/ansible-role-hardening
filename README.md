@@ -6,12 +6,23 @@ Configurable ansible role für hardening server
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+If you are deploying to an aws instance, make sure, that the default ssh port and the new ssh port are allowed as inbound rules.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+A list of available role variables with short explanation an default values (`default/main.yml`)
+
+```
+# Changes the ssh port.
+hardening_ssh: True
+```
+Activate or deactivate hardening options
+
+```
+hardening_ssh_port: 49222
+```
+Change ssh port to the specified port. The port (default or configured) has to be set as `ansible_port` in the inventory variables.
 
 Dependencies
 ------------
