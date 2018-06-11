@@ -5,3 +5,4 @@
     regexp: "^Port"
     line: "Port {{ hardening_ssh_port }}"
   notify: "Restart sshd"
+  become: True
