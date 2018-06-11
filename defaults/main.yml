@@ -1,0 +1,10 @@
+---
+# defaults file for hardening
+
+# Activate or deactivate options
+
+hardening_ssh: True
+
+
+# Options für ssh
+hardening_ssh_port: 49222
