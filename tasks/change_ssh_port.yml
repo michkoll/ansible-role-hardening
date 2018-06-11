@@ -17,7 +17,9 @@
 - name: Set inventory ansible_port to default
   set_fact:
     ansible_port: "22"
-  when: 'default_ssh is defined and default_ssh.state == "started"'
+  when: 'default_ssh is defined and
+          default_ssh.state is defined and
+          default_ssh.state == "started"'
 
 - name: If not default port, check if inventory port is available
   wait_for:
