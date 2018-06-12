@@ -6,6 +6,7 @@
     name: iptables-persistent
     state: present
     update_cache: no
+  become: True
 
 - name: Hardening IPTables | Copy over base Iptables Rules
   template: src=iptables-rules.j2 dest=/etc/iptables/rules.v4
@@ -14,4 +15,3 @@
 
 - name: Ensure iptables is reloaded
   meta: flush_handlers
-s
