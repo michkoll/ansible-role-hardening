@@ -12,3 +12,6 @@
   template: src=iptables-rules.j2 dest=/etc/iptables/rules.v4
   notify: restart iptables-persistent
   become: true
+
+- name: Ensure iptables is reloaded
+  meta: flush_handlers
