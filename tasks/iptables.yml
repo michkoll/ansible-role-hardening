@@ -1,0 +1,16 @@
+---
+- name: Hardening IPTables | Copy over base Iptables Rules
+  template: src="{{ role_path }}/files/iptables-rules" dest=/etc/iptables-rules
+  become: true
+
+- name:  Hardening IPTables | Create IPTables IFUp script
+  copy: content="#!/bin/bash\niptables-restore < /etc/iptables-rules" dest=/etc/network/if-pre-up.d/iptables
+  become: true
+
+- name:  Hardening IPTables | Ensure Iptables script is executable
+  file: path=/etc/network/if-pre-up.d/iptables mode='u=rwx,g=rx,o=rx'
+  become: true
+
+- name:  Hardening IPTables | Apply Iptables
+  shell: iptables-restore < /etc/iptables-rules
+  become: true

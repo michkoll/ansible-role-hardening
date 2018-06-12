@@ -4,6 +4,7 @@
 # Activate or deactivate options
 
 hardening_ssh: True
+hardening_iptables: True
 
 
 # Options für ssh
