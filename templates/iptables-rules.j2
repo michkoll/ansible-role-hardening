@@ -12,13 +12,13 @@
 -A INPUT -i lo -j ACCEPT
 -A INPUT -p icmp -m icmp --icmp-type 8 -m conntrack --ctstate NEW -j ACCEPT
 -A INPUT -p udp -m conntrack --ctstate NEW -j UDP-IN
--A INPUT -p tcp -m tcp --tcp-flags FIN,SYN,RST,ACK SYN -m conntrack --ctstate NEW -j TCP-IN
+-A INPUT -p tcp -m tcp --tcp-flags FIN,SYN,RST,PSH,ACK SYN -m conntrack --ctstate NEW -j TCP-IN
 -A INPUT -j LOGDROP
 -A OUTPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
 -A OUTPUT -o lo -j ACCEPT
 #-A OUTPUT -m conntrack --ctstate INVALID -j DROP
 -A OUTPUT -p udp -m conntrack --ctstate NEW -j UDP-OUT
--A OUTPUT -p tcp -m tcp --tcp-flags FIN,SYN,RST,ACK SYN -m conntrack --ctstate NEW -j TCP-OUT
+-A OUTPUT -p tcp -m tcp --tcp-flags FIN,SYN,RST,PSH,ACK SYN -m conntrack --ctstate NEW -j TCP-OUT
 -A OUTPUT -j LOGDROP
 -A LOGALLOW -m limit --limit 5/sec -j LOG --log-prefix "IPTables-Allowed: " --log-level info
 -A LOGALLOW -j ACCEPT
