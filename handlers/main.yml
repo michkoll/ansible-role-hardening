@@ -15,7 +15,7 @@
 
 - name: restart iptables-persistent
   shell: >
-    sleep 5s && service iptables-persistent restart
+    sleep 5s && service netfilter-persistent restart
   become: True
   async: 10
   poll: 0
