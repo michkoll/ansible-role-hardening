@@ -47,8 +47,8 @@
     msg: "The SSH port is neither 22 or {{ configured_port }}."
   when: 'ssh_port_set is undefined'
 
-- name: Confirm host connection works
-  ping:
+#- name: Confirm host connection works
+#  ping:
 
 - name: Setup alternate SSH port
   lineinfile:
