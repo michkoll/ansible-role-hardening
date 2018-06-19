@@ -1,7 +1,7 @@
 Role Name
 =========
 
-Configurable ansible role für hardening server
+Ansible role for hardening server. The actual development is specific for a honeypot server.
 
 Requirements
 ------------
@@ -27,7 +27,7 @@ Change ssh port to the specified port. The port (default or configured) has to b
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+No dependencies.
 
 Example Playbook
 ----------------
@@ -36,14 +36,15 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: hardening }
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+&copy; 2018
+Written by [Michael Koll](https://github.com/michkoll)
