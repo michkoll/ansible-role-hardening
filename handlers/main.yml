@@ -17,5 +17,5 @@
   shell: >
     sleep 5s && service netfilter-persistent restart
   become: True
-  async: 10
-  poll: 0
+  async: 20
+  poll: 5
