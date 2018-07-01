@@ -27,8 +27,8 @@
 -A TCP-IN -p tcp -m tcp --dport {{ hostvars[inventory_hostname]['ansible_port'] | default('22') }} -j LOGALLOW
 -A TCP-IN -j RETURN
 -A TCP-OUT -p tcp -m tcp --sport {{ hostvars[inventory_hostname]['ansible_port'] | default('22') }} -j LOGALLOW
--A TCP-OUT -p tcp -m tcp --sport 80 -j LOGALLOW
--A TCP-OUT -p tcp -m tcp --sport 443 -j LOGALLOW
+-A TCP-OUT -p tcp -m tcp --dport 80 -j LOGALLOW
+-A TCP-OUT -p tcp -m tcp --dport 443 -j LOGALLOW
 -A TCP-OUT -j RETURN
 -A UDP-IN -m pkttype --pkt-type broadcast -j DROP
 -A UDP-IN -j RETURN
